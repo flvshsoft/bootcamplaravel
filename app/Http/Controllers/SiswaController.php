@@ -29,6 +29,23 @@ class SiswaController extends Controller
         return redirect('/siswa')->with('success', 'Data added successfully');
     }
 
+    public function edit($id)
+    {
+        $siswa = Siswa::where('id', $id)->get();
+        return view('layout.update', ['siswa' => $siswa]);
+    }
+
+    public function update(Request $request)
+    {
+        Siswa::where('id', $request->id)->update([
+            'nama' => $request->nama,
+            'kelas' => $request->kelas,
+            'alamat' => $request->alamat,
+            'jenis_kelamin' => $request->jk
+        ]);
+        return redirect('/siswa')->with('success', 'Data berhasil di update');
+    }
+
     public function destroy($id)
     {
         // echo 'ok';

@@ -20,4 +20,6 @@ Route::get('/', function () {
 Route::get('/siswa', 'App\Http\Controllers\SiswaController@index');
 Route::get('/add', 'App\Http\Controllers\SiswaController@add');
 Route::post('/store', 'App\Http\Controllers\SiswaController@store');
+Route::get('/siswa/edit/{id}', 'App\Http\Controllers\SiswaController@edit');
+Route::post('/update', 'App\Http\Controllers\SiswaController@update');
 Route::get('/siswa/delete/{id}', 'App\Http\Controllers\SiswaController@destroy');
