@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/siswa', 'App\Http\Controllers\SiswaController@index');
 Route::get('/add', 'App\Http\Controllers\SiswaController@add');
 Route::post('/store', 'App\Http\Controllers\SiswaController@store');
 Route::get('/siswa/edit/{id}', 'App\Http\Controllers\SiswaController@edit');
 Route::post('/update', 'App\Http\Controllers\SiswaController@update');
 Route::get('/siswa/delete/{id}', 'App\Http\Controllers\SiswaController@destroy');
+
+// Login
+Route::get('/', 'App\Http\Controllers\LoginController@index');
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/register', 'App\Http\Controllers\LoginController@register');
+Route::post('/register', 'App\Http\Controllers\LoginController@create');
